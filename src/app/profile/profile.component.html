@@ -1,6 +1,6 @@
 <form>
     <div class="form-group">
-        <label>SEARCH BY:</label>
+        <label>SEARCH USER:</label>
         <input type="text" name="search" [(ngModel)]='username' (keyup)="findUser()">
     </div>
 </form>
@@ -12,11 +12,11 @@
 
         <div class="card-body">
             <div class="row">
-                <div class='col-sm-3'>
+                <div class='col-md-3'>
                     <img [src]='user.avatar_url' [title]='user.name' [style.width.px]='imageWidth' [style.height.px]='imageHeight'>
                 </div>
 
-                <div class="col-sm-9">
+                <div class="col-md-6">
                     <!-- <p>Name : {{user.name}}</p>
                    <p>Location: {{user.location}}</p>
                    <p *ngIf="user.hireable">Available for hire</p>
@@ -32,10 +32,10 @@
                     </ul>
 
                     <div class="stats">
-                        <span class="btn btn-secondary">{{user.followers}} Followers</span>
+                        <span class="btn btn-primary">{{user.followers}} Followers</span>
                         <span class="btn btn-primary">Following {{user.following}}</span>
-                        <span class="btn btn-success">{{user.public_repos}} Public Repos</span>
-                        <span class="btn btn-info">{{user.public_gists}} Public Gists</span>
+                        <span class="btn btn-success">{{user.public_repos}} Public Repositories</span>
+                        <!-- <span class="btn btn-info">{{user.public_gists}} Public Gists</span> -->
                     </div>
 
                 </div>

@@ -1,0 +1,19 @@
+#navbars {
+    height: 100px;
+    color: white;
+    font-weight: bolder;
+}
+
+#webname {
+    margin-top: 20px;
+    color: white;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#list {
+    margin-top: 40px;
+    margin-left: 3%;
+    font-weight: bolder;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

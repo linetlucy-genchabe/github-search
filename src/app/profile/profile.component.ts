@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   username: string = 'linetlucy-genchabe'
   imageWidth: number = 220;
   imageHeight: number = 250;
+  repoName:string='Quotes-app';
   
 
   constructor(private profileService: ProfileService, private http:HttpClient) { 
@@ -36,6 +37,8 @@ export class ProfileComponent implements OnInit {
       this.userRepos = repos;
     })
   }
+
+  
 
   ngOnInit() {
     this.findUser()

@@ -11,6 +11,9 @@ import { observable } from 'rxjs';
 export class ProfileService {
   username!: string;
   repoName!: string;
+
+  clientId: string = "c789323b20a2d31dc9fa";
+  clientSecret: string = "83e428e5ed1c99fded8ab02686753f74656f9f6b";
   
 
   private _Url='https://api.github.com/users';
@@ -25,15 +28,29 @@ export class ProfileService {
   }
 
   getUserRepos() {
-    return this.http.get('https://api.github.com/users/' + this.username + '/repos');
+    return this.http.get('https://api.github.com/users/' + this.username + '/repos'+ "?client_id=" + this.clientId + "&client_secret=" + this.clientSecret);
   }
 
   
 
-  searchrepos() {
-    return this.http.get('https://api.github.com/search/repositories?q=' + this.repoName, ({
-      headers: new HttpHeaders({Authorization: `token ${environment.apikey}`})
-    }))
+   searchrepos() {
+    return this.http.get('https://api.github.com/search/repositories?q=' + this.repoName+'/repos?acess_token='+environment.apikey);
+      // headers: new HttpHeaders({Authorization: `token ${environment.apikey}`})
+     }
+   
+
+
+  getProfiles() {
+    return this.http.get<any[]>(this._Url);  }
+
+  getProfileInfo(){  
+    return this.http.get('https://api.github.com/users/'+this.username+'?acess_token='+environment.apikey);    }   
+  
+   
+  getRepos(){
+    let userrepo =  this.http.get('https://api.github.com/users/'+this.username+'/repos?acess_token='+environment.apikey); 
+    console.log(userrepo)
+    return userrepo    
   }
 
   UpdateUser(username:string) {
@@ -46,10 +63,10 @@ export class ProfileService {
 }
 
 
-// ngOnInit() {
-//   // GET request with response type <any>
+//  ngOnInit() {
+//       // GET request with response type <any>
 //   this.http.get<any>('https://api.github.com/users').subscribe((data) => {
 //     this.username = data.total;
 //     console.log(this.username);
 //   });
-// }
+//   }

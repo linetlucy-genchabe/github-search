@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ReposComponent } from './repos/repos.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DatePipe } from './date.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     ReposComponent,
-    NavbarComponent
+    NavbarComponent,
+    DatePipe
   ],
   imports: [
     BrowserModule,

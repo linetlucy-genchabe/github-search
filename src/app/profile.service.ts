@@ -12,7 +12,8 @@ export class ProfileService {
   username!: string;
   repoName!: string;
 
-  
+  clientId: string = "c789323b20a2d31dc9fa";
+  clientSecret: string = "83e428e5ed1c99fded8ab02686753f74656f9f6b";
 
   private _Url='https://api.github.com/users';
 
@@ -26,15 +27,19 @@ export class ProfileService {
   }
 
   getUserRepos() {
-    return this.http.get('https://api.github.com/users/' + this.username );
+    return this.http.get('https://api.github.com/users/' + this.username +'/repos'+ "?client_id=" + this.clientId + "&client_secret=" + this.clientSecret );
   }
 
   
-
-   searchrepos() {
-    return this.http.get('https://api.github.com/search/repositories?q=' + this.repoName+'/repos?acess_token='+environment.apikey);
-      // headers: new HttpHeaders({Authorization: `token ${environment.apikey}`})
-     }
+  searchrepos() {
+    return this.http.get('https://api.github.com/search/repositories?q=' + this.repoName, ({
+      headers: new HttpHeaders({Authorization: `token ${environment.apikey}`})
+    }))
+  }
+  //  searchrepos() {
+  //   return this.http.get('https://api.github.com/search/repositories?q=' + this.repoName);
+  //      headers: new HttpHeaders({Authorization: `token ${environment.apikey}`})
+  //    }
    
 
 

@@ -5,9 +5,27 @@
 
 <router-outlet></router-outlet>
 <div class="container" align="center">
-    <div class="homepage" align="center">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="pic">
+                <img src="/assets/Hello.png" id="pic">
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="homepage" align="center">
+                <div class="words" style="padding-top: 2%;">
+                    <h3 id="h3" style="margin-top: 100px;"><b>WELCOME TO GITHUB SEARCH</b></h3>
+                    <h4>Search by username to view user details and their repositories</h4>
+                </div>
+
+
+            </div>
+        </div>
 
     </div>
+
 
     <div class="contact">
         <h1>Contact me:</h1>
@@ -16,6 +34,12 @@
     </div>
 </div>
 <style>
+    #pic {
+        margin-top: 10%;
+        height: 300px;
+        width: 400px;
+    }
+    
     .contact {
         margin-top: 10%;
         background-color: gray;
@@ -24,9 +48,20 @@
     }
     
     .homepage {
-        margin-top: 10%;
+        margin-top: 22%;
+        background-color: #FFD580;
+        font-weight: bolder;
+        /* background-image: url("/assets/backpic.jpg.jpg"); */
+        height: 250px;
+        width: 400px;
+        border: 2px solid #FFD580;
+        border-radius: 20px;
+        box-shadow: 2px 2px 2px 2px solid #FFD580;
+    }
+    /* .homepage {
+        margin-top: 18%;
         height: 300px;
         width: 300px;
         background-image: url('/assets/hello.gif');
-    }
+    } */
 </style>

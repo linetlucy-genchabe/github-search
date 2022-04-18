@@ -10,15 +10,34 @@ import { HttpClient } from '@angular/common/http';
 export class ReposComponent implements OnInit {
   repoitems:any=["items"];
   repoName:string='Quotes-app';
+  user: any;
+  userRepos:any;
+  username: string = 'linetlucy-genchabe'
+  imageWidth: number = 220;
+  imageHeight: number = 250;
+ 
   
   
 
   constructor(private profileService:ProfileService, private http:HttpClient) {
+    this.user=profileService.getUser()
     
 
    }
 
-  
+   findUser () {
+    this.profileService.UpdateUser(this.username);
+
+    this.profileService.getUser().subscribe(user => {
+      console.log(user);
+      this.user = user;
+    });
+
+    this.profileService.getUserRepos().subscribe(repos => {
+      console.log(repos);
+      this.userRepos = repos;
+    })
+  }
    findRepo () {
      this.profileService.UpdateRepo(this.repoName);
      this.profileService.searchrepos().subscribe((repo: { [x: string]: any; })=> {

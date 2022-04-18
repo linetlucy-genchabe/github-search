@@ -2,15 +2,27 @@
     <div class="container">
         <form>
             <div class="form-group">
-                <label>SEARCH BY:</label>
-                <input type="text" name="search" [(ngModel)]='repoName' (keyup)="findRepo()">
+                <label>SEARCH USER:</label>
+                <input type="text" name="search" [(ngModel)]='username' (keyup)="findUser()">
+            </div>
+        </form>
+        <div class="card bg-light" *ngIf="user.public_repos">
+            <div class="card-header">
+                <h2><b>REPOSITORIES</b> </h2>
+            </div>
+            <div class="card-body " *ngFor="let repo of userRepos">
+                <div class="card row">
+                    <div class="card-body">
+                        <h3>{{repo.name}}</h3>
+                        <p>Created: {{repo.created_at | date}}</p>
+                        <p>Language Used: {{repo.language}}</p>
+                        <p>{{repo.description}}</p>
+                        <span><a href="{{repo.html_url}}" target="_blank" class="btn btn-success">View Project</a></span>
+                    </div>
+                </div>
             </div>
 
-        </form>
-
-
-
-        <div *ngIf="repoitems">
+            <!-- <div *ngIf="repoitems">
             <div class="card" *ngFor='let item of repoitems'>
                 <div class="card-body">
                     <a href="{{item.html_url}}" target="_blank"><strong>{{item.name}}</strong></a>
@@ -21,7 +33,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> -->
 
+        </div>
     </div>
-</div>
